@@ -1,0 +1,20 @@
+docker run -u root -d --name jenkins -p 8080:8080 jenkins/jenkins:lts
+
+docker run -u root -d --name jenkins -p 8080:8080 --mount type=volume,source=vol1,target=/var/jenkins_home jenkins/jenkins:lts
+cat /var/jenkins_home/secrets/initialAdminPassword
+docker exec -it 453e7b0d80c2 /bin/bash
+docker volume ls
+docker volume inspect vol1
+docker volume ls
+docker volume prune
+docker volume create <name>
+
+Voulme :
+docker run -d --name devtest -v vol1:/app nginx:latest
+
+docker exec -it 6421f38ae032 /bin/bash
+
+docker run -d --name devtest --mount source=vol2,target=/app nginx:latest
+
+docker inspect <container-id>
+docker logs -f <container>
